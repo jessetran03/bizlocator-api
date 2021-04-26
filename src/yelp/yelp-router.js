@@ -11,7 +11,7 @@ const serializeBusiness = business => ({
   url: business.url,
   review_count: business.review_count,
   categories: business.categories,
-  rating: business.ratings,
+  rating: business.rating,
   price: business.price,
   location: business.location,
   display_phone: business.display_phone,
@@ -25,7 +25,7 @@ const serializeBusinessDetails = business => ({
   url: business.url,
   review_count: business.review_count,
   categories: business.categories,
-  ratings: business.ratings,
+  rating: business.rating,
   price: business.price,
   location: business.location,
   display_phone: business.display_phone,
@@ -60,7 +60,6 @@ yelpRouter
   .get((req, res, next) => {
     YelpService(`businesses/${req.params.id}`)
     .then(({ data }) => {
-      console.log(data)
       res.json((serializeBusinessDetails(data)))
     })
     .catch(next)
